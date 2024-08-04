@@ -16,15 +16,15 @@ contract PrivateNFT is ERC721, Ownable {
         _currentTokenId += 1;
         uint256 newItemId = _currentTokenId;
         _mint(recipient, newItemId);
-        
-        emit NFTMinted(recipient, newItemId);  
+
+        emit NFTMinted(recipient, newItemId);
         return newItemId;
     }
 
     function burnNFT(uint256 tokenId) public {
         require(ownerOf(tokenId) == msg.sender, "Error: You're not owner");
         _burn(tokenId);
-        emit NFTBurned(tokenId);  
+        emit NFTBurned(tokenId);
 
     }
 
